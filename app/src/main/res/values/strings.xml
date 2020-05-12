@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Sleepy Storie</string>
+    <string name="acessar_o_sistema">Acessar o sistema</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_shopping_cart">Carrinho</string>
+    <string name="title_favorite">Favoritos</string>
+    <string name="title_profile">Perfil</string>
+    <string name="title_search">Busca</string>
+    <string name="time_left">1 hour 23 minutes left</string>
+    <string name="percent_complet">% completed</string>
+</resources>
