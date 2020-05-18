@@ -24,7 +24,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
     private TextInputEditText textName, textEmail, textBirthday, textCelular, textAddress, textCity, textCEP, textPassword, textConfirmPassword;
     private TextInputLayout textNameLayout, textEmailLayout, textBirthdayLayout, textCelularLayout, textAddressLayout, textCityLayout, textCEPLayout, textPasswordLayout, textConfirmPasswordLayout;
-    private boolean isFirstValidation = true, isValidName = false, isValidEmail = false, isValidBirthday = false, isValidCelular = false, isValidAddress = false, isValidCity = false, isValidCEP = false, isValidPassword = false, isValidConfirmPassword = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,16 +56,15 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.buttonSignUp) {
-            isFirstValidation = false;
-            isValidName = validateFieldRequired(textName, textNameLayout);
-            isValidEmail = validateFieldRequired(textEmail, textEmailLayout);
-            isValidBirthday = validateFieldRequired(textBirthday, textBirthdayLayout);
-            isValidCelular = validateFieldRequired(textCelular, textCelularLayout);
-            isValidAddress = validateFieldRequired(textAddress, textAddressLayout);
-            isValidCity = validateFieldRequired(textCity, textCityLayout);
-            isValidCEP = validateFieldRequired(textCEP, textCEPLayout);
-            isValidPassword = validateFieldRequired(textPassword, textPasswordLayout);
-            isValidConfirmPassword = validConfirmPassword();
+            boolean isValidName = validateFieldRequired(textName, textNameLayout);
+            boolean isValidEmail = validateFieldRequired(textEmail, textEmailLayout);
+            boolean isValidBirthday = validateFieldRequired(textBirthday, textBirthdayLayout);
+            boolean isValidCelular = validateFieldRequired(textCelular, textCelularLayout);
+            boolean isValidAddress = validateFieldRequired(textAddress, textAddressLayout);
+            boolean isValidCity = validateFieldRequired(textCity, textCityLayout);
+            boolean isValidCEP = validateFieldRequired(textCEP, textCEPLayout);
+            boolean isValidPassword = validateFieldRequired(textPassword, textPasswordLayout);
+            boolean isValidConfirmPassword = validConfirmPassword();
             if (isValidName && isValidEmail && isValidBirthday && isValidCelular && isValidAddress && isValidCity && isValidCEP && isValidPassword && isValidConfirmPassword) {
                 createUser();
             }

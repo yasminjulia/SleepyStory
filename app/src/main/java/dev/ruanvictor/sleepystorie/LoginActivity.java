@@ -49,13 +49,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private CallbackManager mCallbackManager;
     private TextInputEditText textPassword, textEmail;
     private TextInputLayout textPasswordLayout, textEmailLayout;
-    private boolean isValidPassword = false, isValidEmail = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        getSupportActionBar().hide();
+
         mAuth = FirebaseAuth.getInstance();
+
+        textEmail = findViewById(R.id.textEmail);
+        textEmailLayout = findViewById(R.id.textEmailLayout);
+        textPassword = findViewById(R.id.textPassword);
+        textPasswordLayout = findViewById(R.id.textPasswordLayout);
 
         Button buttonLogin = findViewById(R.id.buttonLogin);
         buttonLogin.setOnClickListener(this);
@@ -155,8 +162,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             startActivityForResult(signInIntent, RC_SIGN_IN);
         }
         if(v.getId() == R.id.buttonLogin) {
-            isValidEmail = validateFieldRequired(textEmail, textEmailLayout);
-            isValidPassword = validateFieldRequired(textPassword, textPasswordLayout);
+            boolean isValidEmail = validateFieldRequired(textEmail, textEmailLayout);
+            boolean isValidPassword = validateFieldRequired(textPassword, textPasswordLayout);
             if(isValidEmail && isValidPassword) {
                 mAuth.signInWithEmailAndPassword(textEmail.getText().toString(), textPassword.getText().toString())
                         .addOnCompleteListener(task -> {

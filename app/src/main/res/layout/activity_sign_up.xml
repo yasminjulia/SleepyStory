@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".SignUpActivity">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textNameLayout"
@@ -116,6 +120,8 @@
             android:id="@+id/textCity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1"
             android:hint="@string/city" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -132,6 +138,8 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textCEP"
+            android:maxLines="1"
+            android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/cep" />
@@ -177,8 +185,8 @@
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="199dp"
-        android:layout_height="45dp"
+        android:layout_width="198dp"
+        android:layout_height="54dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/textCEPLayout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -193,7 +201,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/sign_up"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -203,7 +213,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="@string/fields_requireds"
         android:textSize="12sp"
@@ -211,3 +221,4 @@
         app:layout_constraintTop_toBottomOf="@+id/textConfirmPasswordLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
