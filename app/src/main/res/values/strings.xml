@@ -27,5 +27,9 @@
     <string name="facebook_app_id">676476372900747</string>
     <string name="fb_login_protocol_scheme">fb676476372900747</string>
     <string name="google_request_id_token">193596827009-ch3qc7igudthp4od1g2r8u58qus4qpr8.apps.googleusercontent.com</string>
+    <string name="sign_in_google">Entrar com Google</string>
+    <string name="sign_in_facebook">Entrar com Facebook</string>
+    <string name="forgot_password">Esqueci minha senha</string>
+    <string name="conect_with">OU CONECTE COM</string>
 
 </resources>

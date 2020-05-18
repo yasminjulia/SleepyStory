@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,12 +26,18 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+
+import dev.ruanvictor.sleepystorie.utils.UIUtil;
 
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
@@ -40,12 +47,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private GoogleSignInClient mGoogleSignInClient;
     private FirebaseAuth mAuth;
     private CallbackManager mCallbackManager;
+    private TextInputEditText textPassword, textEmail;
+    private TextInputLayout textPasswordLayout, textEmailLayout;
+    private boolean isValidPassword = false, isValidEmail = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         mAuth = FirebaseAuth.getInstance();
+
+        Button buttonLogin = findViewById(R.id.buttonLogin);
+        buttonLogin.setOnClickListener(this);
+
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .requestIdToken(getString(R.string.google_request_id_token))
@@ -55,11 +69,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         signInButton.setOnClickListener(this);
         TextView textView = (TextView) signInButton.getChildAt(0);
         textView.setAllCaps(true);
-        textView.setText("Entrar com Google");
+        textView.setText(R.string.sign_in_google);
 
         mCallbackManager = CallbackManager.Factory.create();
         LoginButton loginButton = findViewById(R.id.sign_in_facebook_button);
-        loginButton.setLoginText("Entrar com Facebook");
+        loginButton.setLoginText(getString(R.string.sign_in_facebook));
         loginButton.setAllCaps(true);
         loginButton.setPermissions("email", "public_profile");
         loginButton.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
@@ -89,10 +103,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if(currentUser != null) {
             startActivity(new Intent(this, HomeActivity.class));
         }
-    }
-
-    private void signIn() {
-
     }
 
     @Override
@@ -144,6 +154,31 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             Intent signInIntent = mGoogleSignInClient.getSignInIntent();
             startActivityForResult(signInIntent, RC_SIGN_IN);
         }
+        if(v.getId() == R.id.buttonLogin) {
+            isValidEmail = validateFieldRequired(textEmail, textEmailLayout);
+            isValidPassword = validateFieldRequired(textPassword, textPasswordLayout);
+            if(isValidEmail && isValidPassword) {
+                mAuth.signInWithEmailAndPassword(textEmail.getText().toString(), textPassword.getText().toString())
+                        .addOnCompleteListener(task -> {
+                            if(task.isSuccessful()) {
+                                openHomeActivity();
+                            }
+
+                            try {
+                                throw task.getException();
+                            } catch (FirebaseAuthInvalidUserException e) {
+                                textEmailLayout.setError(getString(R.string.field_required));
+                                textEmailLayout.setErrorEnabled(true);
+                            } catch (FirebaseAuthInvalidCredentialsException e) {
+                                textPasswordLayout.setError(getString(R.string.field_required));
+                                textPasswordLayout.setErrorEnabled(true);
+                            } catch (Exception e) {
+                                Log.e(TAG, "Erro ao efetuar login: " + e.getMessage());
+                            }
+                });
+            }
+
+        }
     }
 
     private void handleFacebookAccessToken(AccessToken token) {
@@ -170,5 +205,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void openHomeActivity() {
         startActivity(new Intent(this, HomeActivity.class));
+        finish();
+    }
+
+    private boolean validateFieldRequired(TextInputEditText field, TextInputLayout layout) {
+        if (field.getText().toString().isEmpty()) {
+            layout.setError(getString(R.string.field_required));
+            layout.setErrorEnabled(true);
+        } else {
+            UIUtil.clearErrorStyle(layout);
+        }
+
+        return (layout.getError() == null);
     }
 }
