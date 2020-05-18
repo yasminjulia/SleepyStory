@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Sleepy Storie</string>
-    <string name="acessar_o_sistema">Acessar o sistema</string>
+    <string name="login">Login</string>
+    <string name="sign_up">Sign Up</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_home">Home</string>
     <string name="title_shopping_cart">Carrinho</string>
@@ -9,4 +10,22 @@
     <string name="title_search">Busca</string>
     <string name="time_left">1 hour 23 minutes left</string>
     <string name="percent_complet">% completed</string>
+    <string name="name_complet">Nome e Sobrenome</string>
+    <string name="email">E-mail</string>
+    <string name="birthday">Data de Nascimento</string>
+    <string name="celulat">Celular</string>
+    <string name="adress">Endereço</string>
+    <string name="city">Cidade</string>
+    <string name="cep">CEP</string>
+    <string name="password">Senha</string>
+    <string name="confirm_password">Confirmar Senha</string>
+    <string name="field_required">Preencha esse campo</string>
+    <string name="fields_requireds">Todos os campos são obrigatorios.</string>
+    <string name="password_not_match">As senhas não conferem</string>
+    <string name="password_weak">Por favor, digite uma senha mais forte</string>
+
+    <string name="facebook_app_id">676476372900747</string>
+    <string name="fb_login_protocol_scheme">fb676476372900747</string>
+    <string name="google_request_id_token">193596827009-ch3qc7igudthp4od1g2r8u58qus4qpr8.apps.googleusercontent.com</string>
+
 </resources>

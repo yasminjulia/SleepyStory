@@ -16,7 +16,7 @@ import dev.ruanvictor.sleepystorie.R;
 import dev.ruanvictor.sleepystorie.adapter.SearchAdapter;
 import dev.ruanvictor.sleepystorie.model.Book;
 import dev.ruanvictor.sleepystorie.utils.MountBooks;
-import dev.ruanvictor.sleepystorie.utils.OpenFragments;
+import dev.ruanvictor.sleepystorie.utils.UIUtil;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -55,7 +55,7 @@ public class SearchFragment extends Fragment implements OnBookListener {
     public void onBookClick(int position) {
         Book book = books.get(position);
 
-        OpenFragments.openBookDetails(book, getFragmentManager());
+        UIUtil.openBookDetails(book, getFragmentManager());
     }
 
 }

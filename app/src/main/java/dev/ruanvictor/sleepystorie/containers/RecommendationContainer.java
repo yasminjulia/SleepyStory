@@ -12,7 +12,7 @@ import dev.ruanvictor.sleepystorie.R;
 import dev.ruanvictor.sleepystorie.adapter.RecommendAdapter;
 import dev.ruanvictor.sleepystorie.model.Book;
 import dev.ruanvictor.sleepystorie.utils.MountBooks;
-import dev.ruanvictor.sleepystorie.utils.OpenFragments;
+import dev.ruanvictor.sleepystorie.utils.UIUtil;
 
 public class RecommendationContainer {
 
@@ -26,7 +26,7 @@ public class RecommendationContainer {
         gridViewRecommend.setOnItemClickListener((parent, view1, position, id) -> {
             Book book = books.get(position);
 
-            OpenFragments.openBookDetails(book, fragmentManager);
+            UIUtil.openBookDetails(book, fragmentManager);
         });
     }
 }
