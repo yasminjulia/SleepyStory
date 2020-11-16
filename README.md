@@ -16,9 +16,33 @@ de entretenimento uma vez que aborda a importância dos livros infantis, e o que
 educação infantil; contribui no desenvolvimento do senso crítico, fator social e emocional das crianças.
 </p>
 ___
+
 ## Sobre o desenvolvimento
+
 ### Diagrama de arquitetura
-![]()
-![diagrama de arquitetura](https://github.com/yasminjulia/AppAdotePet/blob/master/assets/Diagrama%20de%20arquitetura.png)
+
+![diagrama de arquitetura](https://github.com/yasminjulia/SleepyStory/blob/master/assets/Diagrama%20de%20arquitetura.png)
+
+### Estrutura analítica de projeto 
+![](https://github.com/yasminjulia/SleepyStory/blob/master/assets/EAP-sleepy%20story.png)
+![](https://github.com/yasminjulia/SleepyStory/blob/master/assets/Modelo%20cascata.png)
+### Diagrama de caso de uso
+![](https://github.com/yasminjulia/SleepyStory/blob/master/assets/Diagrama%20de%20caso%20de%20uso.png)
+### Diagrama de entidade e relacionamento
+![](https://github.com/yasminjulia/SleepyStory/blob/master/assets/diagrama%20entidade-relacionamento.png)
+### Diagrama de atividade
+![](https://github.com/yasminjulia/SleepyStory/blob/master/assets/Diagrama%20de%20atividade.png)
+___
+## Interface do usuário
+### Baixa fidelidade
+![](https://github.com/yasminjulia/SleepyStory/blob/master/assets/1.png)
+![](https://github.com/yasminjulia/SleepyStory/blob/master/assets/2.png)
+![](https://github.com/yasminjulia/SleepyStory/blob/master/assets/3.png)
+### Produto final
+![](https://github.com/yasminjulia/SleepyStory/blob/master/assets/img1.png)
+![](https://github.com/yasminjulia/SleepyStory/blob/master/assets/img2.png)
+![](https://github.com/yasminjulia/SleepyStory/blob/master/assets/img3.png)
+![](https://github.com/yasminjulia/SleepyStory/blob/master/assets/img4.png)
+
 
 # 	:family_woman_woman_girl:
