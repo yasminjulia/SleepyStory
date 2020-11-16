@@ -15,7 +15,9 @@ O presente projeto tem o intuito de não somente incentivar a leitura, mas tamb�
 de entretenimento uma vez que aborda a importância dos livros infantis, e o que eles proporcionam para
 educação infantil; contribui no desenvolvimento do senso crítico, fator social e emocional das crianças.
 </p>
+
 ___
+
 
 ## Sobre o desenvolvimento
 
