@@ -46,5 +46,13 @@ ___
 ![](https://github.com/yasminjulia/SleepyStory/blob/master/assets/img3.png)
 ![](https://github.com/yasminjulia/SleepyStory/blob/master/assets/img4.png)
 
+___
+
+## Como contribuir
+Para contribuir com este projeto, faça um fork deste repositório e crie um Pull Request. 
+Caso encontre um problema que não pode ou não sabe corrigir, por favor abra uma issue. Se desejar, ver a documentação completa entre em contato! 
+### Autores
+
+Júlia Guimarães & Ruan Victor
 
 # 	:family_woman_woman_girl:
